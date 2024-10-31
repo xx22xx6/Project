@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+	* {
+    padding: 0;
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-sizing: border-box;
+    transition: .2s linear;
+    text-decoration: none;
+    outline: none;
+    border: none;
+}
+
+:root {
+    --colorsPage: brown
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+}
+
+section {
+    padding: 2rem 9%;
+}
+
+header {
+    top: 0;
+    right: 0;
+    left: 0;
+    position: fixed;
+    background-color: #dfe9f5;
+    padding: 1.5rem 9%;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    z-index: 1000;
+}
+
+header .fa-bars:hover {
+    color: var(--colorsPage);
+}
+
+header .logo {
+    font-weight: bolder;
+    font-size: 3rem;
+    color: #333;
+}
+
+header .logo span {
+    color: var(--colorsPage);
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 100%;
+    left: -800px;
+    right: 0;
+    width: 200%;
+    background-color: #eee;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    border-top: .1rem solid rgba(0, 0, 0, .1);
+
+}
+
+header .toggler:checked~.navbar {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
+}
+
+.navbar a {
+    color: #666;
+    font-size: 2rem;
+    padding: 10px 1.5rem;
+}
+
+.navbar a:hover {
+   color: #fff;
+    background-color: var(--colorsPage);
+}
+
+.icons a {
+    color: #333;
+    margin-left: 1.5rem;
+    font-size: 2.5rem;
+}
+
+.icons a:hover {
+    color: var(--colorsPage);
+}
+
+header .fa-bars {
+    font-size: 3rem;
+    cursor: pointer;
+    color: #333;
+    border-radius: 5rem;
+    border: .1rem solid rgba(0, 0, 0, 3);
+    padding: .5rem 1.5rem;
+
+
+}
+
+header .toggler {
+    display: none;
+}
+
+.home {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    /* background: url(imgaes/mainP.jpeg) no-repeat; */
+     background: url(imgaes/shop2.png) no-repeat;
+    background-position: 1000px;
+}
+
+.content {
+    max-width: 50rem;
+}
+
+.content h3 {
+    font-size: 6rem;
+    color: #333;
+}
+
+.content span {
+    padding: 1rem 0;
+    line-height: 1.5;
+    font-size: 3.5rem;
+    color: var(--colorsPage)
+}
+
+.content p {
+    padding: 1rem 0;
+    line-height: 1.5;
+    font-size: 1.6rem;
+    color: #333;
+}
+
+.btn {
+    padding: .9rem 3.5rem;
+    font-size: 1.7rem;
+    cursor: pointer;
+    color: #fff;
+    background: #333;
+    border-radius: 5rem;
+    margin-top: 1rem;
+    display: inline-block;
+
+}
+
+.btn:hover {
+    background: var(--colorsPage);
+}
+
+.headingTitle {
+    padding: 20px;
+    margin: 2rem 0;
+    text-align: center;
+    background: #dfe9f5;
+    font-size: 4rem;
+    color: #333;
+
+}
+
+.productsShop {
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.headingTitle span {
+    color: var(--colorsPage);
+    font-size: 4rem;
+}
+
+.row {
+    padding: 90px;
+    padding-bottom: 3rem;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+.pic1 {
+    position: relative;
+    flex: 1 1 40rem;
+}
+
+.pic1 img {
+    width: 100%;
+    height: 100%;
+    border: 1.5rem solid #fff;
+}
+
+.con {
+    flex: 1 1 40rem;
+}
+
+.con h3 {
+    font-size: 3rem;
+    color: #333;
+}
+
+.con a {
+    font-size: 1.5rem;
+}
+
+.con p {
+    color: #5a5a5a;
+    font-size: 2rem;
+    padding: .5rem 0;
+    padding-top: 1rem;
+    line-height: 1.5;
+}
+
+.iconsIc {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: #eee;
+    flex-wrap: wrap;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.icons2 img {
+    height: 5rem;
+    margin-right: 2rem;
+}
+
+.icons2 {
+    padding: 2rem;
+    border: 1rem solid rgba(0, 0, 0, .1);
+    background-color: #fff;
+    flex: 1 1 25rem;
+    align-items: center;
+    display: flex;
+}
+
+.information h3,
+span {
+    font-size: 1.7rem;
+    color: #333;
+}
+
+.contBox {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.boxMain {
+    position: relative;
+    box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
+    border: .1rem solid rgba(0, 0, 0, .1);
+    border-radius: .5rem;
+    padding: 10px;
+    /* padding: 24px; */
+
+}
+
+.discount {
+    top: 1rem;
+    left: 1rem;
+    padding: .7rem 1rem;
+    border-radius: .5rem;
+    position: absolute;
+    color: var(--colorsPage);
+    background: rgba(255, 51, 153, .05);
+    z-index: 1;
+}
+
+.image {
+    overflow: hidden;
+    text-align: center;
+    padding-top: 2rem;
+    position: relative;
+}
+
+.image img {
+    width: 280px;
+    height: 400px;
+}
+
+.boxMain:hover .image img {
+    transform: scale(1.1);
+}
+
+.boxMain:hover .image .iconProduct {
+    bottom: 0;
+}
+
+.iconProduct {
+    display: flex;
+    position: absolute;
+    bottom: -7rem;
+    left: 0;
+    right: 0;
+}
+
+.iconProduct a {
+    width: 50%;
+    font-size: 2rem;
+    background-color: var(--colorsPage);
+    line-height: 3rem;
+    color: #fff;
+}
+
+.cart-btn {
+    width: 100%;
+    border-right: .1rem solid #fff7;
+    border-left: .1rem solid #fff7;
+}
+
+.iconProduct a:hover {
+    background-color: #333;
+}
+
+.contpro {
+    text-align: center;
+    padding: .2rem;
+}
+
+.contpro h3 {
+    color: #333;
+    font-size: 2.5rem;
+}
+
+.pricepro {
+    color: var(--colorsPage);
+    font-size: 2.5rem;
+    font-weight: bolder;
+    padding-top: 1rem;
+}
+
+.pricepro span {
+    color: #999;
+    font-size: 1.5rem;
+    font-weight: lighter;
+    text-decoration: line-through;
+}
+
+.boxConte {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.boxRev {
+    border-radius: .5rem;
+    box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
+    flex: 1 1 30rem;
+    border: .1rem solid rgba(0, 0, 0, .1);
+    position: relative;
+    padding: 3rem 2rem;
+}
+
+
+.fa-quote-right {
+    position: absolute;
+    color: #eee;
+    font-size: 6rem;
+    bottom: 3rem;
+    right: 3rem;
+}
+
+.person {
+    display: flex;
+    align-items: center;
+    padding-top: 2rem;
+}
+
+.iconst i {
+    font-size: 2rem;
+    color: var(--colorsPage);
+}
+
+.boxConte p {
+    color: #999;
+    line-height: 1.5;
+    font-size: 1.5rem;
+    padding-top: 2rem;
+}
+
+.person img {
+    width: 6rem;
+    height: 6rem;
+    margin-right: 1rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.personIn h3 {
+    color: #333;
+    font-size: 2rem;
+}
+
+.person span {
+    color: #999;
+    font-size: 1.5rem;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap-reverse;
+}
+
+.valid {
+    flex: 1 1 40rem;
+    box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
+    padding: 2rem 2.5rem;
+    background-repeat: round;
+    border-radius: .5rem;
+    background-color: #fff;
+    border: .1rem solid rgba(0, 0, 0, .1);
+    height: 85vh;
+}
+
+.im {
+    flex: 1 1 40rem;
+}
+
+.im img {
+    width: 100%;
+}
+
+.box1 {
+    border: .1rem solid rgba(0, 0, 0, .1);
+    text-decoration: none;
+    color: #333;
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.7rem;
+    margin: .7rem 0;
+    border-radius: .5rem;
+
+}
+
+.box1:focus {
+    border-color: var(--colorsPage);
+}
+
+.valid textarea {
+    resize: none;
+    height: 15rem;
+}
+
+
+.fotBox {
+    gap: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.boxFot {
+    flex: 1 1 25rem;
+}
+
+.boxFot h3 {
+    padding: 1rem 0;
+    color: #333;
+    font-size: 2.5rem;
+}
+
+.boxFot a {
+    padding: 1rem 0;
+    color: #666;
+    display: block;
+    font-size: 1.5rem;
+}
+
+.boxFot a:hover {
+    color: var(--colorsPage);
+    text-decoration: underline;
+}
+
+.boxFot img {
+    margin-top: 1rem;
+    width: 35px;
+}
+
+.quantity {
+    background-color: #666;
+    color: #fff;
+    border-radius: 50%;
+    padding: 2px 5px;
+    cursor: pointer;
+}
+
+.quantity:hover {
+    background-color: red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width:991px) {
+    html {
+        font-size: 55%;
+    }
+
+    header {
+        padding: 2rem;
+    }
+
+    section {
+        padding: 2rem;
+    }
+
+    .home {
+        background-position: left;
+    }
+
+}
+
+@media (max-width:768px) {
+    html .fa-bars {
+        display: block;
+    }
+
+    header .navbar a span {
+        padding: 1.5rem;
+        margin: 1.5rem;
+        display: block;
+        border: .1rem solid rgba(0, 0, 0, .1);
+    }
+
+    .content h3 {
+        font-size: 5rem;
+    }
+
+    .content span {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width:450px) {
+    html {
+        font-size: 50%;
+    }
+
+    .heading {
+        font-size: 3rem;
+    }
+}
+	</style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Smart Phone</title>
+</head>
+
+<body style="text-transform: capitalize;">
+
+    <header>
+
+        <input type="checkbox" class="toggler" name="" id="toggler">
+        <label for="toggler" class="fas fa-bars"></label>
+
+
+        <a href="#" class="logo">TechTown</a>
+
+
+        <div class="navbar">
+            <a href="index.html">Home</a>
+            <a href="aboutus.html">About</a>
+            <a href="prodect.html">Product</a>
+            <a href="conactus.html">Contact</a>
+        </div>
+
+        <div class="icons">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-shopping-cart"></a>
+            <span class="quantity">0</span>
+            <a href="log.html" class="fas fa-user"></a>
+        </div>
+
+    </header>
+
+    <section class="home" id="Home">
+        <div class="content">
+            <h3>new phone</h3>
+            <span>Every thing for you </span>
+            <p>Explore our exceptional store and dive into the realm of amazing smartphones,
+                Let your phone reflect your style and creativity, get the perfect device from our store.
+            </p>
+            <a href="#" class="btn">Shop Now</a>
+        </div>
+    </section>
+
+
+    <section class="rev">
+
+        <h1 class="headingTitle">Customers <span>Review</span></h1>
+
+        <div class="boxConte">
+            <div class="boxRev">
+                <div class="iconst">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>I was amazed by the diverse range of phones available in the store.
+                    There was a wide selection of smartphones from all the leading brands,
+                    allowing me the opportunity to choose a device that suited my needs and budget.</p>
+                <div class="person">
+                    <img src="imgaes/man.png" alt="">
+                    <div class="personIn">
+                        <h3>Abdulazez</h3>
+                        <span>Happy customer</span>
+                    </div>
+                </div>
+                <span class="fas fa-quote-right"></span>
+            </div>
+
+            <div class="boxRev">
+                <div class="iconst">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p> I am extremely happy with my visit to phone store.
+                    It is a fantastic store that offers a unique and satisfactory shopping experience.
+                    I highly recommend it to anyone in search of high-quality smartphones and excellent service.</p>
+                <div class="person">
+                    <img src="imgaes/man.png" alt="">
+                    <div class="personIn">
+                        <h3>Faisal</h3>
+                        <span>happy customer</span>
+                    </div>
+                </div>
+                <span class="fas fa-quote-right"></span>
+            </div>
+            <div class="boxRev">
+                <div class="iconst">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>I noticed that the store was beautifully designed and elegant,
+                    creating a comfortable and enjoyable atmosphere while shopping.
+                    The arrangement and display of the phones were organized and neat,
+                    making it easy for me to browse and choose with ease.</p>
+                <div class="person">
+                    <img src="imgaes/woman.png" alt="">
+                    <div class="personIn">
+                        <h3>Sara</h3>
+                        <span>Happy customer</span>
+                    </div>
+                </div>
+                <span class="fas fa-quote-right"></span>
+            </div>
+        </div>
+
+    </section>
+
+    <footer class="footerPage">
+        <div class="fotBox">
+            <div class="boxFot">
+                <h3>Quick links</h3>
+                <a href="index.html">home</a>
+                <a href="aboutUs.html">about</a>
+                <a href="prodect.html">products</a>
+                <a href="#Review">review</a>
+                <a href="conactUs.html">contact</a>
+            </div>
+
+            <div class="boxFot">
+                <h3>Extra links</h3>
+                <a href="#">my account</a>
+                <a href="#">my order</a>
+                <a href="#">my favorite</a>
+            </div>
+            <div class="boxFot">
+                <h3>Location</h3>
+                <a href="#">saudi arabia</a>
+                <a href="#">usa</a>
+                <a href="#">china</a>
+            </div>
+
+            <div class="boxFot">
+                <h3>Contact information</h3>
+                <a href="#">+098-765-4321</a>
+                <a href="#">companyServer@gmail.com</a>
+                <a href="#">phone , ksa - 06123221</a>
+                <img src="imgaes/credit-card.png" alt="">
+                <img src="imgaes/visa.png" alt="">
+                <img src="imgaes/card (1).png" alt="">
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
